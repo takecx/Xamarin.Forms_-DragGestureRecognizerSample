@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DragGestureRecognizerSample"
+             x:Class="DragGestureRecognizerSample.MainPage">
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    <Grid RowDefinitions="150,20,150,*" BackgroundColor="Aquamarine">
+        <Grid Grid.Row="0" RowDefinitions="100,20" BackgroundColor="Transparent">
+            <Grid.GestureRecognizers>
+                <DragGestureRecognizer DragStartingCommand="{Binding DragCommand}"/>
+            </Grid.GestureRecognizers>
+            <Frame CornerRadius="40" 
+                    HeightRequest="80"
+                    WidthRequest="80"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Padding="0"
+                    IsClippedToBounds="True">
+                <Image Source="./soccer_boy_brazil.png" Aspect="AspectFill"/>
+            </Frame>
+            <Label Grid.Row="1" Text="Brazil Boy" HorizontalTextAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="2" BackgroundColor="BurlyWood">
+            <Grid.GestureRecognizers>
+                <DropGestureRecognizer/>
+            </Grid.GestureRecognizers>
+        </Grid>
+    </Grid>
+</ContentPage>
